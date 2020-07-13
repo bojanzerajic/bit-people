@@ -50,7 +50,7 @@ class App extends React.Component {
 
   loadUsers = () => {
     this.setState({ isLoading: true })
-    fetch('https://randomuser.me/api/?results=15', {mode: 'cors'})
+    fetch('https://randomuser.me/api/?results=15', {headers: {mode: 'cors'}})
       .then(res => res.json())
       .then(data => this.setState({ users: data.results }, () => { localStorage.setItem('users', JSON.stringify(data.results)) }))
       .finally(() => this.setState({ isLoading: false }))
